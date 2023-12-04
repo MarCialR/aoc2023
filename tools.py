@@ -6,8 +6,8 @@ from types import SimpleNamespace
 from httplib2 import Http
 
 from IPython.display import display_markdown
-
-AOC_URL ="https://adventofcode.com/2023/day/%d"
+YEAR = "2023"
+AOC_URL = f"https://adventofcode.com/{YEAR}/day/%d"
 PUZZLE_HTML_FILE = "./descriptions/html%d.txt"
 PUZZLE_DATA_FILE = "./data/puzzle%d.txt"
 PUZZLE_TEST_DATA_FILE = "./data/test%d.txt"
@@ -91,7 +91,7 @@ Place your puzzle data in a file %s in the data folder""" % puzzle_file
 
     
 def show_problem_1(puzzle, debug=False) :
-    display_markdown(puzzle.problem_1, raw=True)
+    display_markdown(AOC_URL % puzzle.day + "\n" + puzzle.problem_1, raw=True)
 
 
 def show_problem_2(puzzle, debug=False):
