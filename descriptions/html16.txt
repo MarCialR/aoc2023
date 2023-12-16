@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -87,10 +88,10 @@ If you'd like to hang out, I'm @ericwastl@hachyderm.io on Mastodon and
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2023/about">[About]</a></li><li><a href="/2023/events">[Events]</a></li><li><a href="https://teespring.com/stores/advent-of-code" target="_blank">[Shop]</a></li><li><a href="/2023/auth/login">[Log In]</a></li></ul></nav></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">/*</span><a href="/2023">2023</a><span class="title-event-wrap">*/</span></h1><nav><ul><li><a href="/2023">[Calendar]</a></li><li><a href="/2023/support">[AoC++]</a></li><li><a href="/2023/sponsors">[Sponsors]</a></li><li><a href="/2023/leaderboard">[Leaderboard]</a></li><li><a href="/2023/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2023/about">[About]</a></li><li><a href="/2023/events">[Events]</a></li><li><a href="https://teespring.com/stores/advent-of-code" target="_blank">[Shop]</a></li><li><a href="/2023/settings">[Settings]</a></li><li><a href="/2023/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mar Cial R <span class="star-count">13*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">sub y{</span><a href="/2023">2023</a><span class="title-event-wrap">}</span></h1><nav><ul><li><a href="/2023">[Calendar]</a></li><li><a href="/2023/support">[AoC++]</a></li><li><a href="/2023/sponsors">[Sponsors]</a></li><li><a href="/2023/leaderboard">[Leaderboard]</a></li><li><a href="/2023/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2023/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="https://www.honeycomb.io/product-overview" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Honeycomb</a> - On call for the holidays? Honeycomb adopters are happier and less burned out because we make your complex systems easy to understand.</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2023/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="https://monta.com/" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Monta</a> - Monta is the ultimate platform powering the entire EV charging ecosystem. From drivers, to businesses, to industry partners, we offer software solutions that cover all EV charging needs.</div></div>
 </div><!--/sidebar-->
 
 <main>
@@ -145,8 +146,41 @@ If you'd like to hang out, I'm @ericwastl@hachyderm.io on Mastodon and
 <p>Ultimately, in this example, <code><em>46</em></code> tiles become <em>energized</em>.</p>
 <p>The light isn't energizing enough tiles to produce lava; to debug the contraption, you need to start by analyzing the current situation. With the beam starting in the top-left heading right, <em>how many tiles end up being energized?</em></p>
 </article>
-<p>To play, please identify yourself via one of these services:</p>
-<p><a href="/auth/github">[GitHub]</a> <a href="/auth/google">[Google]</a> <a href="/auth/twitter">[Twitter]</a> <a href="/auth/reddit">[Reddit]</a> <span class="quiet">- <a href="/about#faq_auth">[How Does Auth Work?]</a></span></p>
+<p>Your puzzle answer was <code>6883</code>.</p><p class="day-success">The first half of this puzzle is complete! It provides one gold star: *</p>
+<article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>As you try to work out what might be wrong, the reindeer tugs on your shirt and leads you to a nearby control panel. There, a collection of buttons lets you align the contraption so that the beam enters from <em>any edge tile</em> and heading away from that edge. (You can choose either of two directions for the beam if it starts on a corner; for instance, if the beam starts in the bottom-right corner, it can start heading either left or upward.)</p>
+<p>So, the beam could start on any tile in the top row (heading downward), any tile in the bottom row (heading upward), any tile in the leftmost column (heading right), or any tile in the rightmost column (heading left). To produce lava, you need to find the configuration that <em>energizes as many tiles as possible</em>.</p>
+<p>In the above example, this can be achieved by starting the beam in the fourth tile from the left in the top row:</p>
+<pre><code>.|&lt;2&lt;\....
+|v-v\^....
+.v.v.|-&gt;&gt;&gt;
+.v.v.v^.|.
+.v.v.v^...
+.v.v.v^..\
+.v.v/2\\..
+&lt;-2-/vv|..
+.|&lt;&lt;&lt;2-|.\
+.v//.|.v..
+</code></pre>
+<p>Using this configuration, <code><em>51</em></code> tiles are energized:</p>
+<pre><code>.#####....
+.#.#.#....
+.#.#.#####
+.#.#.##...
+.#.#.##...
+.#.#.##...
+.#.#####..
+########..
+.#######..
+.#...#.#..
+</code></pre>
+<p>Find the initial beam configuration that energizes the largest number of tiles; <em>how many tiles are energized in that configuration?</em></p>
+</article>
+<form method="post" action="16/answer"><input type="hidden" name="level" value="2"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Although it hasn't changed, you can still <a href="16/input" target="_blank">get your puzzle input</a>.</p>
+<p>You can also <span class="share">[Share<span class="share-content">on
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+Part+One+of+%22The+Floor+Will+Be+Lava%22+%2D+Day+16+%2D+Advent+of+Code+2023&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2023%2Fday%2F16&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+Part+One+of+%22The+Floor+Will+Be+Lava%22+%2D+Day+16+%2D+Advent+of+Code+2023+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2023%2Fday%2F16';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+></span>]</span> this puzzle.</p>
 </main>
 
 <!-- ga -->
