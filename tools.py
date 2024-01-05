@@ -187,3 +187,34 @@ class AoCParser(HTMLParser):
         if self.dbg:
             print("last tag: " + self.stack[-1] + "  Encountered some data  :", data)
 
+
+import inspect
+
+
+def pd(*arglist):
+    """# Debugging HACK to print the variables passed onto the method and their values.
+    # combination of:
+    # hacky answer https://stackoverflow.com/a/2749857
+    # and 
+    # frameInfo.frame.f_locals https://stackoverflow.com/a/57980878"""
+
+    frame = inspect.currentframe()
+    frameInfo = inspect.getouterframes(frame)[1]
+    string = inspect.getframeinfo(frameInfo[0]).code_context[0].strip()
+    args = string[string.find('(') + 1:-1].split(',')
+    
+    names = []
+    for i in args:
+        if i.find('=') != -1:
+            names.append(i.split('=')[1].strip())
+        
+        else:
+            names.append(i.strip())
+
+    string = "{}:{}  " * len(names)
+    variables = []
+    for va in names:
+        variables.extend((va, frameInfo.frame.f_locals[va]))
+
+    print(string.format(*variables))
+
